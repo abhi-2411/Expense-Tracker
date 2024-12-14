@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">Your Expenses</h1>
+        <ul class="expense-list">
+            {% for expense in expenses %}
+                <li class="expense-item">
+                    <span class="expense-title">{{ expense.title }}</span>
+                    <span class="expense-amount">₹{{ expense.amount }}</span>
+                    <span class="expense-date">({{ expense.date }})</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="add-expense-link" href="{% url 'add_expense' %}">Add New Expense</a>
+    </div>
+</body>
+</html>
